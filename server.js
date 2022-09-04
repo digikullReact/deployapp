@@ -1,12 +1,16 @@
 const express=require("express");
 const app=express();
-const path=require("path")
+const path=require("path");
+const { RootRouteController } = require("./controllers/main.controller");
+const ErrorMiddleware = require("./middlewares/commonErrorHandler");
 
-app.use(express.static('dist'));
 
+//app.use(express.static('dist'));
+/*
 app.get('*', (req, res) => {
     res.sendFile(path.resolve(__dirname, 'dist', 'index.html'));
   });
+  */
 
 
 
@@ -19,6 +23,17 @@ app.get("/",function(req,res){
 */
 
 // how to send the static file
+
+app.get("/",function(req,res){
+    res.send("Hey there")
+
+})
+
+
+app.get("/data",RootRouteController)
+
+
+app.use(ErrorMiddleware)
 
 app.listen(8080,function(){
     console.log(`Server Running `);
