@@ -25,7 +25,9 @@ app.get("/",function(req,res){
 // how to send the static file
 
 app.get("/",function(req,res){
-    res.send("Hey there")
+    res.json({
+        message:"Checking the ci cd"
+    })
 
 })
 
