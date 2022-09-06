@@ -29,6 +29,13 @@ app.get("/",function(req,res){
 
 })
 
+app.get("/chec",function(req,res){
+    res.json({
+        message:"All good"
+    })
+
+})
+
 
 app.get("/data",RootRouteController)
 
